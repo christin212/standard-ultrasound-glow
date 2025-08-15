@@ -2,41 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Standard Ultrasound Design System - Luxury Tech Dark Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark luxury theme with blue/green accents */
+    --background: 0 0% 6%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand blue - primary CTA color */
+    --primary: 214 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 214 85% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Brand green - secondary accent */
+    --secondary: 142 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 142 70% 55%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 90%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 20%;
+    --input: 0 0% 12%;
+    --ring: 214 85% 55%;
 
-    --radius: 0.5rem;
+    /* Spacing and layout */
+    --radius: 0.75rem;
+    --section-padding: 6rem;
+    --container-padding: 2rem;
+
+    /* Luxury gradients */
+    --gradient-brand: linear-gradient(135deg, hsl(214 85% 55%), hsl(142 70% 45%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 4%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 8% / 0.8), hsl(0 0% 12% / 0.4));
+
+    /* Shadows and effects */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 10px 30px -5px hsl(0 0% 0% / 0.3);
+
+    /* Animation and transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +122,84 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+    background: var(--gradient-dark);
   }
+
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* CTA Button Variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-glow hover:shadow-luxury transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-glow text-secondary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-card hover:shadow-luxury transform hover:scale-105;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-glow;
+  }
+
+  /* Section containers */
+  .section-container {
+    @apply py-section-padding px-container-padding max-w-7xl mx-auto;
+  }
+
+  /* Card components */
+  .luxury-card {
+    @apply bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-luxury transition-all duration-500 backdrop-blur-sm;
+    background: var(--gradient-card);
+  }
+
+  /* Animations */
+  .fade-in-up {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .fade-in-up.animate {
+    @apply opacity-100 translate-y-0;
+  }
+
+  /* Form styling */
+  .form-input {
+    @apply w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300;
+  }
+
+  .form-select {
+    @apply form-input cursor-pointer;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+
+  @keyframes slide-in-left {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-in-right {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+  .animate-slide-in-left { animation: slide-in-left 0.8s ease-out; }
+  .animate-slide-in-right { animation: slide-in-right 0.8s ease-out; }
 }
