@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         // Standard Ultrasound custom variants
         primary: "btn-primary",
-        cta: "btn-secondary", 
+        cta: "btn-primary", 
         outline_primary: "btn-outline",
       },
       size: {

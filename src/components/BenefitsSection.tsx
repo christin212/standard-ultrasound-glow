@@ -18,7 +18,7 @@ export default function BenefitsSection() {
       icon: Stethoscope,
       title: "XDclear Probes",
       description: "Next-generation transducer technology for superior image clarity and diagnostic confidence",
-      gradient: "from-green-500 to-teal-500"
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: Users,

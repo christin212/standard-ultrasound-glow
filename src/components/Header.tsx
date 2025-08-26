@@ -10,7 +10,7 @@ export default function Header({ onGetQuote }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const leftNavItems = [
-    { label: "Products", href: "#products" },
+    { label: "Products", href: "/product" },
     { label: "Solutions", href: "#solutions" },
     { label: "Support", href: "#support" }
   ];

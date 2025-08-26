@@ -6,15 +6,7 @@ interface ProductHeroSectionProps {
 }
 
 export default function ProductHeroSection({ onGetQuote }: ProductHeroSectionProps) {
-  const [selectedOption, setSelectedOption] = useState("new");
   const [selectedImage, setSelectedImage] = useState(0);
-
-  const options = [
-    { id: "new", label: "New" },
-    { id: "demo", label: "Demo" },
-    { id: "used", label: "Used" },
-    { id: "rental", label: "Rental" }
-  ];
 
   const images = [
     "/placeholder.svg",
@@ -43,31 +35,11 @@ export default function ProductHeroSection({ onGetQuote }: ProductHeroSectionPro
             <Button 
               onClick={onGetQuote}
               size="xl"
-              variant="cta"
+              variant="primary"
               className="shadow-glow"
             >
               Request Quote
             </Button>
-
-            {/* Option Selector */}
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-muted-foreground">Available Options:</p>
-              <div className="flex flex-wrap gap-2">
-                {options.map((option) => (
-                  <button
-                    key={option.id}
-                    onClick={() => setSelectedOption(option.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                      selectedOption === option.id
-                        ? "bg-primary text-primary-foreground shadow-glow"
-                        : "bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary"
-                    }`}
-                  >
-                    {option.label}
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right Content - Images */}

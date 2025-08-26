@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    /* Dark luxury theme with blue/green accents */
+    /* Dark luxury theme with blue accent only */
     --background: 0 0% 6%;
     --foreground: 0 0% 95%;
 
@@ -18,15 +18,15 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 95%;
 
-    /* Brand blue - primary CTA color */
-    --primary: 214 85% 55%;
+    /* Brand blue - primary CTA color (#199CFF) */
+    --primary: 202 100% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 214 85% 65%;
+    --primary-glow: 202 100% 65%;
 
-    /* Brand green - secondary accent */
-    --secondary: 142 70% 45%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-glow: 142 70% 55%;
+    /* Secondary uses muted colors for non-brand elements */
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 90%;
+    --secondary-glow: 0 0% 20%;
 
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 65%;
@@ -39,7 +39,7 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 12%;
-    --ring: 214 85% 55%;
+    --ring: 202 100% 55%;
 
     /* Spacing and layout */
     --radius: 0.75rem;
@@ -47,7 +47,7 @@
     --container-padding: 2rem;
 
     /* Luxury gradients */
-    --gradient-brand: linear-gradient(135deg, hsl(214 85% 55%), hsl(142 70% 45%));
+    --gradient-brand: linear-gradient(135deg, hsl(202 100% 55%), hsl(202 100% 45%));
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 4%));
     --gradient-card: linear-gradient(135deg, hsl(0 0% 8% / 0.8), hsl(0 0% 12% / 0.4));
 
@@ -126,9 +126,39 @@
     background: var(--gradient-dark);
   }
 
-  /* Smooth scrolling for better UX */
-  html {
-    scroll-behavior: smooth;
+  /* Mobile-first responsive design */
+  @media (max-width: 768px) {
+    :root {
+      --section-padding: 3rem;
+      --container-padding: 1rem;
+    }
+    
+    /* Reduce animations on mobile for performance */
+    .animate-glow-pulse,
+    .animate-float {
+      transform: none !important;
+      animation: none !important;
+    }
+
+    /* Optimize touch targets */
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Fluid typography */
+    h1 { font-size: clamp(2rem, 8vw, 4rem); }
+    h2 { font-size: clamp(1.5rem, 6vw, 3rem); }
+    h3 { font-size: clamp(1.25rem, 5vw, 2rem); }
+  }
+
+  /* Prefers reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -136,10 +166,6 @@
   /* CTA Button Variants */
   .btn-primary {
     @apply bg-primary hover:bg-primary-glow text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-glow hover:shadow-luxury transform hover:scale-105;
-  }
-
-  .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-glow text-secondary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 shadow-card hover:shadow-luxury transform hover:scale-105;
   }
 
   .btn-outline {

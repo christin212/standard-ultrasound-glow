@@ -36,7 +36,7 @@ export default function HeroSection({ onGetQuote, onScheduleDemo }: HeroSectionP
               <span>Authorized GE Partner</span>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <Shield className="w-5 h-5 text-secondary" />
+              <Shield className="w-5 h-5 text-primary" />
               <span>5-Year Warranty</span>
             </div>
             <div className="flex items-center gap-2 text-sm">

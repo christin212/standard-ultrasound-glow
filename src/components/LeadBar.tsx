@@ -23,11 +23,11 @@ export default function LeadBar({ onGetQuote }: LeadBarProps) {
               <span>Authorized GE Partner</span>
             </div>
             <div className="flex items-center gap-1">
-              <Truck className="w-4 h-4 text-secondary" />
+              <Truck className="w-4 h-4 text-primary" />
               <span>Free Shipping</span>
             </div>
             <div className="flex items-center gap-1">
-              <CreditCard className="w-4 h-4 text-secondary" />
+              <CreditCard className="w-4 h-4 text-primary" />
               <span>Financing Available</span>
             </div>
             <div className="flex items-center gap-1">

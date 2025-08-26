@@ -24,47 +24,6 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
 
   return (
     <footer className="bg-card/50 border-t border-border">
-      {/* Related Products Section */}
-      <section className="section-container border-b border-border">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Explore Other GE Models</h2>
-          <p className="text-lg text-muted-foreground">
-            Discover the complete range of GE ultrasound solutions
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {relatedProducts.map((product, index) => (
-            <div key={index} className="luxury-card text-center space-y-4 hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-32 bg-gradient-brand rounded-lg opacity-20"></div>
-              <h3 className="font-bold text-lg">{product.name}</h3>
-              <Button variant="outline" size="sm" className="w-full">
-                Learn More
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          ))}
-        </div>
-
-        {/* Final CTA */}
-        <div className="text-center bg-gradient-brand rounded-2xl p-8">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white">Ready to Transform Your Practice?</h3>
-            <p className="text-white/90 text-lg">
-              Get your personalized quote and start upgrading today
-            </p>
-            <Button 
-              variant="secondary" 
-              size="xl"
-              onClick={onGetQuote}
-              className="bg-white text-primary hover:bg-gray-100"
-            >
-              Get Your Final Quote
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Footer Info */}
       <div className="max-w-7xl mx-auto px-container-padding py-12">
         <div className="grid md:grid-cols-3 gap-8">
@@ -122,6 +81,24 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
                 ✓ FDA Registered Facility
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Final CTA */}
+        <div className="text-center bg-gradient-brand rounded-2xl p-8 my-12">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-white">Ready to Transform Your Practice?</h3>
+            <p className="text-white/90 text-lg">
+              Get your personalized quote and start upgrading today
+            </p>
+            <Button 
+              variant="primary" 
+              size="xl"
+              onClick={onGetQuote}
+              className="bg-white text-primary hover:bg-gray-100"
+            >
+              Get Your Final Quote
+            </Button>
           </div>
         </div>
 
