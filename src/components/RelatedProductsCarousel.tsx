@@ -46,13 +46,24 @@ export default function RelatedProductsCarousel() {
 
   const itemsToShow = 4;
   const maxIndex = Math.max(0, products.length - itemsToShow);
+  const mobileMaxIndex = Math.max(0, products.length - 1);
 
   const goToPrevious = () => {
-    setCurrentIndex(Math.max(0, currentIndex - 1));
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      setCurrentIndex(Math.max(0, currentIndex - 1));
+    } else {
+      setCurrentIndex(Math.max(0, currentIndex - 1));
+    }
   };
 
   const goToNext = () => {
-    setCurrentIndex(Math.min(maxIndex, currentIndex + 1));
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      setCurrentIndex(Math.min(mobileMaxIndex, currentIndex + 1));
+    } else {
+      setCurrentIndex(Math.min(maxIndex, currentIndex + 1));
+    }
   };
 
   return (
@@ -68,8 +79,8 @@ export default function RelatedProductsCarousel() {
         </div>
 
         <div className="relative">
-          {/* Carousel Container */}
-          <div className="overflow-hidden">
+          {/* Desktop Carousel */}
+          <div className="hidden md:block overflow-hidden">
             <div 
               className="flex transition-transform duration-300 ease-in-out gap-6"
               style={{ transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)` }}
@@ -106,8 +117,66 @@ export default function RelatedProductsCarousel() {
             </div>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex justify-center gap-4 mt-8">
+          {/* Mobile Single Product View */}
+          <div className="md:hidden">
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out snap-x snap-mandatory"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {products.map((product) => (
+                  <div
+                    key={product.id}
+                    className="w-full flex-shrink-0 bg-card rounded-xl shadow-card snap-center"
+                  >
+                    <div className="aspect-square rounded-t-xl overflow-hidden bg-muted">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-lg font-semibold mb-2">
+                        {product.name}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        {product.description}
+                      </p>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                      >
+                        View Product
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Mobile Dots Indicator */}
+            <div className="flex justify-center mt-4 space-x-2">
+              {products.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentIndex ? 'bg-primary' : 'bg-muted'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            {/* Mobile Counter */}
+            <div className="text-center mt-2 text-sm text-muted-foreground">
+              {currentIndex + 1} / {products.length}
+            </div>
+          </div>
+
+          {/* Desktop Navigation Controls */}
+          <div className="hidden md:flex justify-center gap-4 mt-8">
             <Button
               onClick={goToPrevious}
               disabled={currentIndex === 0}
@@ -120,6 +189,28 @@ export default function RelatedProductsCarousel() {
             <Button
               onClick={goToNext}
               disabled={currentIndex >= maxIndex}
+              variant="outline"
+              size="icon"
+              className="rounded-full"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </div>
+          
+          {/* Mobile Navigation Controls */}
+          <div className="md:hidden flex justify-center gap-4 mt-6">
+            <Button
+              onClick={goToPrevious}
+              disabled={currentIndex === 0}
+              variant="outline"
+              size="icon"
+              className="rounded-full"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
+            <Button
+              onClick={goToNext}
+              disabled={currentIndex >= mobileMaxIndex}
               variant="outline"
               size="icon"
               className="rounded-full"

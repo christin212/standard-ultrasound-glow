@@ -56,7 +56,7 @@ export default function KeyFeaturesGrid() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -64,7 +64,7 @@ export default function KeyFeaturesGrid() {
                 key={index}
                 className="group p-6 bg-gradient-card rounded-xl shadow-card hover:shadow-luxury transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="flex items-center justify-center w-12 h-12 bg-gradient-brand rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="flex items-center justify-center w-16 h-16 md:w-12 md:h-12 bg-gradient-brand rounded-2xl md:rounded-lg mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">

@@ -70,8 +70,8 @@ export default function WhyUpgradeNow({ onGetQuote }: WhyUpgradeNowProps) {
             </Button>
           </div>
 
-          {/* Right Content - Benefits Cards */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Desktop Benefits Cards */}
+          <div className="hidden md:grid md:grid-cols-2 gap-4">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
@@ -91,6 +91,39 @@ export default function WhyUpgradeNow({ onGetQuote }: WhyUpgradeNowProps) {
                 </div>
               );
             })}
+          </div>
+          
+          {/* Mobile Benefits Cards - Horizontal Scroll */}
+          <div className="md:hidden">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-[70vw] p-4 bg-card rounded-lg shadow-card snap-center"
+                  >
+                    <div className="flex items-center justify-center w-10 h-10 bg-gradient-brand rounded-lg mb-3">
+                      <Icon className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <h3 className="font-semibold mb-1 text-sm">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground">
+                      {benefit.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex justify-center mt-2 space-x-1">
+              {benefits.map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-muted opacity-60"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

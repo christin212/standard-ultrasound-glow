@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "@/components/Header";
+import GlobalHeader from "@/components/GlobalHeader";
 import ProductHeroSection from "@/components/ProductHeroSection";
 import TrustedPartnersMarquee from "@/components/TrustedPartnersMarquee";
 import KeyFeaturesGrid from "@/components/KeyFeaturesGrid";
@@ -26,7 +26,7 @@ export default function Product() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Header onGetQuote={handleGetQuote} />
+      <GlobalHeader onContact={handleGetQuote} />
       
       <main className="overflow-hidden">
         <ProductHeroSection onGetQuote={handleGetQuote} />

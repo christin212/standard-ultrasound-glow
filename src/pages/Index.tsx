@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import LeadBar from "@/components/LeadBar";
-import Header from "@/components/Header";
+import GlobalHeader from "@/components/GlobalHeader";
 import HeroSection from "@/components/HeroSection";
 import MicroQuiz from "@/components/MicroQuiz";
 import WhyUpgradeSection from "@/components/WhyUpgradeSection";
@@ -58,7 +58,7 @@ const Index = () => {
       <LeadBar onGetQuote={handleGetQuote} />
       
       {/* Header */}
-      <Header onGetQuote={handleGetQuote} />
+      <GlobalHeader onContact={handleGetQuote} />
       
       {/* Hero Section */}
       <HeroSection 
