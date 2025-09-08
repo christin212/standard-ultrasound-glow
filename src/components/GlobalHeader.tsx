@@ -83,11 +83,7 @@ export default function GlobalHeader({ onContact }: GlobalHeaderProps) {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isSticky 
-            ? 'bg-background/85 backdrop-blur-[8px] border-b border-border' 
-            : 'bg-transparent'
-        }`}
+        className="relative z-40 bg-transparent transition-all duration-300"
       >
         <div className="max-w-[1440px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-[72px]">
