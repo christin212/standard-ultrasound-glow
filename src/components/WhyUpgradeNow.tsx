@@ -70,29 +70,43 @@ export default function WhyUpgradeNow({ onGetQuote }: WhyUpgradeNowProps) {
             </Button>
           </div>
 
-          {/* Desktop Benefits List */}
-          <div className="hidden md:space-y-6">
-            {benefits.map((benefit, index) => {
-              const Icon = benefit.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary/20 bg-primary/5 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-300">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1 pt-1">
-                    <h3 className="font-semibold text-lg mb-1">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {benefit.description}
-                    </p>
-                  </div>
+          {/* Desktop Benefits - Stats Grid */}
+          <div className="hidden md:block">
+            <div className="relative">
+              {/* Large Stats Display */}
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                <div className="p-6 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm">
+                  <div className="text-5xl font-bold text-primary mb-2">50%</div>
+                  <div className="text-sm font-semibold mb-1">Faster Scanning</div>
+                  <div className="text-xs text-muted-foreground">With automation tools</div>
                 </div>
-              );
-            })}
+                <div className="p-6 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm">
+                  <div className="text-5xl font-bold text-primary mb-2">99%</div>
+                  <div className="text-sm font-semibold mb-1">Accuracy Rate</div>
+                  <div className="text-xs text-muted-foreground">Enhanced diagnostics</div>
+                </div>
+              </div>
+
+              {/* Benefits List */}
+              <div className="space-y-4">
+                {benefits.map((benefit, index) => {
+                  const Icon = benefit.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 p-3 rounded-lg border border-primary/10 bg-primary/5 hover:border-primary/20 hover:bg-primary/10 transition-all duration-300"
+                    >
+                      <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/20">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="font-semibold text-sm">{benefit.title}</div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           
           {/* Mobile Benefits List - Horizontal Scroll */}
