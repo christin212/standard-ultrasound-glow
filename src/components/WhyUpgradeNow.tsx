@@ -70,42 +70,36 @@ export default function WhyUpgradeNow({ onGetQuote }: WhyUpgradeNowProps) {
             </Button>
           </div>
 
-          {/* Desktop Benefits - Stats Grid */}
+          {/* Desktop Benefits - Timeline Style */}
           <div className="hidden md:block">
-            <div className="relative">
-              {/* Large Stats Display */}
-              <div className="grid grid-cols-2 gap-6 mb-6">
-                <div className="p-6 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm">
-                  <div className="text-5xl font-bold text-primary mb-2">50%</div>
-                  <div className="text-sm font-semibold mb-1">Faster Scanning</div>
-                  <div className="text-xs text-muted-foreground">With automation tools</div>
-                </div>
-                <div className="p-6 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm">
-                  <div className="text-5xl font-bold text-primary mb-2">99%</div>
-                  <div className="text-sm font-semibold mb-1">Accuracy Rate</div>
-                  <div className="text-xs text-muted-foreground">Enhanced diagnostics</div>
-                </div>
-              </div>
-
-              {/* Benefits List */}
-              <div className="space-y-4">
-                {benefits.map((benefit, index) => {
-                  const Icon = benefit.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="flex items-center gap-3 p-3 rounded-lg border border-primary/10 bg-primary/5 hover:border-primary/20 hover:bg-primary/10 transition-all duration-300"
-                    >
-                      <div className="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-lg bg-primary/20">
-                        <Icon className="w-5 h-5 text-primary" />
+            <div className="relative pl-8 space-y-8">
+              {/* Vertical Line */}
+              <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
+              
+              {benefits.map((benefit, index) => {
+                const Icon = benefit.icon;
+                return (
+                  <div
+                    key={index}
+                    className="relative group"
+                  >
+                    {/* Timeline Dot */}
+                    <div className="absolute -left-8 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background group-hover:scale-125 transition-transform"></div>
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-3">
+                        <Icon className="w-6 h-6 text-primary" />
+                        <h3 className="font-bold text-lg">
+                          {benefit.title}
+                        </h3>
                       </div>
-                      <div className="flex-1">
-                        <div className="font-semibold text-sm">{benefit.title}</div>
-                      </div>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {benefit.description}
+                      </p>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           

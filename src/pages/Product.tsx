@@ -35,7 +35,6 @@ export default function Product() {
         <WhyUpgradeNow onGetQuote={handleGetQuote} />
         <ProductTabbedContent />
         <RelatedProductsCarousel />
-        <CtaBanner onGetQuote={handleGetQuote} />
       </main>
 
       <FooterSection onGetQuote={handleGetQuote} />
