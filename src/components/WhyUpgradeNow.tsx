@@ -70,30 +70,32 @@ export default function WhyUpgradeNow({ onGetQuote }: WhyUpgradeNowProps) {
             </Button>
           </div>
 
-          {/* Desktop Benefits Cards */}
-          <div className="hidden md:grid md:grid-cols-2 gap-4">
+          {/* Desktop Benefits List */}
+          <div className="hidden md:space-y-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
                 <div
                   key={index}
-                  className="p-4 bg-card rounded-lg shadow-card hover:shadow-luxury transition-all duration-300 hover:-translate-y-1"
+                  className="flex items-start gap-4 group"
                 >
-                  <div className="flex items-center justify-center w-10 h-10 bg-gradient-brand rounded-lg mb-3">
-                    <Icon className="w-5 h-5 text-primary-foreground" />
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary/20 bg-primary/5 group-hover:border-primary/40 group-hover:bg-primary/10 transition-all duration-300">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold mb-1 text-sm">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground">
-                    {benefit.description}
-                  </p>
+                  <div className="flex-1 pt-1">
+                    <h3 className="font-semibold text-lg mb-1">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
           </div>
           
-          {/* Mobile Benefits Cards - Horizontal Scroll */}
+          {/* Mobile Benefits List - Horizontal Scroll */}
           <div className="md:hidden">
             <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
               {benefits.map((benefit, index) => {
@@ -101,17 +103,21 @@ export default function WhyUpgradeNow({ onGetQuote }: WhyUpgradeNowProps) {
                 return (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-[70vw] p-4 bg-card rounded-lg shadow-card snap-center"
+                    className="flex-shrink-0 w-[70vw] snap-center"
                   >
-                    <div className="flex items-center justify-center w-10 h-10 bg-gradient-brand rounded-lg mb-3">
-                      <Icon className="w-5 h-5 text-primary-foreground" />
+                    <div className="flex items-start gap-4 p-4 rounded-lg border border-primary/20 bg-primary/5">
+                      <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full border-2 border-primary/30 bg-primary/10">
+                        <Icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="flex-1 pt-1">
+                        <h3 className="font-semibold mb-1">
+                          {benefit.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {benefit.description}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-semibold mb-1 text-sm">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground">
-                      {benefit.description}
-                    </p>
                   </div>
                 );
               })}
