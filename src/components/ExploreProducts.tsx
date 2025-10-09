@@ -7,25 +7,29 @@ export default function ExploreProducts() {
       name: "GE Versana",
       description: "General imaging excellence",
       models: 4,
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      path: "/product-family/versana"
     },
     {
       name: "GE Voluson",
       description: "Women's health specialists",
       models: 4,
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      path: "/product-family/voluson"
     },
     {
       name: "GE Vivid",
       description: "Cardiovascular imaging",
       models: 3,
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      path: "/product-family/vivid"
     },
     {
       name: "GE Logiq",
       description: "Point of care solutions",
       models: 5,
-      image: "/placeholder.svg"
+      image: "/placeholder.svg",
+      path: "/product-family/logiq"
     }
   ];
 
@@ -45,7 +49,7 @@ export default function ExploreProducts() {
           {productCategories.map((category, index) => (
             <Link
               key={index}
-              to="/product"
+              to={category.path}
               className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-luxury"
             >
               <div className="aspect-[4/3] overflow-hidden">
