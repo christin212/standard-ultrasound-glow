@@ -12,23 +12,23 @@ export default function HeroSection({ onGetQuote, onScheduleDemo }: HeroSectionP
     <section className="section-container min-h-screen flex items-center">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="space-y-8 fade-in-up animate">
+        <div className="space-y-8">
           <div className="space-y-6">
             <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-              <span className="inline-block animate-fade-in opacity-0 [animation-delay:0.1s] [animation-fill-mode:forwards]">
+              <span className="inline-block opacity-0 animate-fade-in [animation-delay:0.1s]">
                 Next-Gen{" "}
               </span>
-              <span className="inline-block animate-fade-in opacity-0 [animation-delay:0.3s] [animation-fill-mode:forwards]">
-                <span className="bg-gradient-brand bg-clip-text text-transparent inline-block animate-[scale-in_0.6s_ease-out_0.5s_forwards] opacity-0">
+              <span className="inline-block opacity-0 animate-fade-in [animation-delay:0.3s]">
+                <span className="bg-gradient-brand bg-clip-text text-transparent inline-block opacity-0 animate-scale-in [animation-delay:0.5s]">
                   GE Ultrasound
                 </span>
               </span>{" "}
-              <span className="inline-block animate-fade-in opacity-0 [animation-delay:0.9s] [animation-fill-mode:forwards]">
+              <span className="inline-block opacity-0 animate-fade-in [animation-delay:0.9s]">
                 Machines
               </span>
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in opacity-0 [animation-delay:1.2s] [animation-fill-mode:forwards]">
+            <p className="text-xl text-muted-foreground leading-relaxed opacity-0 animate-fade-in [animation-delay:1.2s]">
               Transform your practice with AI-assisted imaging technology, 
               enhanced workflow efficiency, and comprehensive warranty coverage. 
               Experience the future of diagnostic imaging today.
@@ -36,7 +36,7 @@ export default function HeroSection({ onGetQuote, onScheduleDemo }: HeroSectionP
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-wrap gap-6 animate-fade-in opacity-0 [animation-delay:1.5s] [animation-fill-mode:forwards]">
+          <div className="flex flex-wrap gap-6 opacity-0 animate-fade-in [animation-delay:1.5s]">
             <div className="flex items-center gap-2 text-sm hover:scale-110 transition-transform">
               <Award className="w-5 h-5 text-primary" />
               <span>Authorized GE Partner</span>
@@ -52,7 +52,7 @@ export default function HeroSection({ onGetQuote, onScheduleDemo }: HeroSectionP
           </div>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in opacity-0 [animation-delay:1.8s] [animation-fill-mode:forwards]">
+          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in [animation-delay:1.8s]">
             <Button 
               variant="primary" 
               size="xl"
@@ -73,8 +73,8 @@ export default function HeroSection({ onGetQuote, onScheduleDemo }: HeroSectionP
         </div>
 
         {/* Right Image */}
-        <div className="relative animate-fade-in opacity-0 [animation-delay:0.5s] [animation-fill-mode:forwards]">
-          <div className="absolute inset-0 bg-gradient-brand rounded-3xl blur-3xl opacity-20 animate-[float_6s_ease-in-out_infinite]"></div>
+        <div className="relative opacity-0 animate-fade-in [animation-delay:0.5s]">
+          <div className="absolute inset-0 bg-gradient-brand rounded-3xl blur-3xl opacity-20 animate-float"></div>
           <img
             src={heroImage}
             alt="GE Ultrasound Machine"
