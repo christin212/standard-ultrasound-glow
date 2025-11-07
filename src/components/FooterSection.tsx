@@ -59,13 +59,13 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
             <div className="grid md:grid-cols-3 gap-6 items-center">
               {/* Left Links */}
               <div className="flex gap-6 text-sm justify-center md:justify-start">
-                <a href="#support" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#support" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                   Support
                 </a>
-                <a href="#training" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#training" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                   Training
                 </a>
-                <a href="#products" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#products" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                   Products
                 </a>
               </div>
@@ -103,13 +103,13 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
 
               {/* Right Links */}
               <div className="flex gap-6 text-sm justify-center md:justify-end">
-                <a href="#return-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#return-policy" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                   Return Policy
                 </a>
-                <a href="#privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#privacy-policy" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                   Privacy Policy
                 </a>
-                <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors whitespace-nowrap">
                   Terms and Conditions
                 </a>
               </div>
