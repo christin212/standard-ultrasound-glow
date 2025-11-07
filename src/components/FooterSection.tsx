@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface FooterSectionProps {
@@ -6,86 +6,11 @@ interface FooterSectionProps {
 }
 
 export default function FooterSection({ onGetQuote }: FooterSectionProps) {
-  const quickLinks = [
-    { label: "Products", href: "#products" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "Support", href: "#support" },
-    { label: "Training", href: "#training" },
-    { label: "Financing", href: "#financing" },
-    { label: "Warranty", href: "#warranty" }
-  ];
-
-  const relatedProducts = [
-    { name: "GE Vivid iQ", href: "#vivid-iq" },
-    { name: "GE Venue Go", href: "#venue-go" },
-    { name: "GE Logiq E10", href: "#logiq-e10" },
-    { name: "GE Voluson E10", href: "#voluson-e10" }
-  ];
-
   return (
     <footer className="bg-card/50 border-t border-border">
-      {/* Footer Info */}
       <div className="max-w-7xl mx-auto px-container-padding py-12">
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-brand bg-clip-text text-transparent">
-              Standard Ultrasound
-            </h3>
-            <p className="text-muted-foreground">
-              Authorized GE Healthcare partner providing cutting-edge ultrasound solutions 
-              to healthcare providers nationwide.
-            </p>
-            <div className="flex items-center gap-2 text-sm">
-              <Phone className="w-4 h-4 text-primary" />
-              <span>1-800-ULTRASOUND</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <Mail className="w-4 h-4 text-primary" />
-              <span>info@standardultrasound.com</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span>Nationwide Service & Support</span>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Quick Links</h4>
-            <nav className="grid grid-cols-2 gap-2">
-              {quickLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          </div>
-
-          {/* Business Hours & Certifications */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Business Hours</h4>
-            <div className="space-y-2 text-sm text-muted-foreground">
-              <div>Monday - Friday: 8:00 AM - 6:00 PM EST</div>
-              <div>Saturday: 9:00 AM - 2:00 PM EST</div>
-              <div>Sunday: Emergency Support Only</div>
-            </div>
-            <div className="pt-4">
-              <div className="text-sm text-muted-foreground">
-                ✓ Authorized GE Partner<br/>
-                ✓ ISO 13485 Certified<br/>
-                ✓ FDA Registered Facility
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Final CTA */}
-        <div className="text-center bg-gradient-brand rounded-2xl p-8 my-12">
+        <div className="text-center bg-gradient-brand rounded-2xl p-8 mb-12">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">Ready to Transform Your Practice?</h3>
             <p className="text-white/90 text-lg">
@@ -102,8 +27,99 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; 2024 Standard Ultrasound. All rights reserved. GE and associated marks are trademarks of General Electric Company.</p>
+        {/* Footer Content */}
+        <div className="space-y-8">
+          {/* Company Info */}
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold bg-gradient-brand bg-clip-text text-transparent">
+              Standard Ultrasound
+            </h3>
+            <p className="text-muted-foreground">
+              Authorized GE Healthcare partner providing cutting-edge ultrasound solutions 
+              to healthcare providers nationwide.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-primary" />
+                <span>1-800-ULTRASOUND</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                <span>info@standardultrasound.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>Nationwide Service & Support</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Links and Social Media */}
+          <div className="border-t border-border pt-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              {/* Left Links */}
+              <div className="flex gap-6 text-sm">
+                <a href="#support" className="text-muted-foreground hover:text-primary transition-colors">
+                  Support
+                </a>
+                <a href="#training" className="text-muted-foreground hover:text-primary transition-colors">
+                  Training
+                </a>
+                <a href="#products" className="text-muted-foreground hover:text-primary transition-colors">
+                  Products
+                </a>
+              </div>
+
+              {/* Social Media Icons */}
+              <div className="flex gap-4">
+                <a 
+                  href="https://facebook.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://linkedin.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a 
+                  href="https://youtube.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </a>
+              </div>
+
+              {/* Right Links */}
+              <div className="flex gap-6 text-sm">
+                <a href="#return-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Return Policy
+                </a>
+                <a href="#privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Privacy Policy
+                </a>
+                <a href="#terms" className="text-muted-foreground hover:text-primary transition-colors">
+                  Terms and Conditions
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center text-sm text-muted-foreground">
+            <p>&copy; 2024 Standard Ultrasound. All rights reserved. GE and associated marks are trademarks of General Electric Company.</p>
+          </div>
         </div>
       </div>
     </footer>
