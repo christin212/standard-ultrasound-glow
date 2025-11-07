@@ -56,9 +56,9 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
 
           {/* Bottom Links and Social Media */}
           <div className="border-t border-border pt-8">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="grid md:grid-cols-3 gap-6 items-center">
               {/* Left Links */}
-              <div className="flex gap-6 text-sm">
+              <div className="flex gap-6 text-sm justify-center md:justify-start">
                 <a href="#support" className="text-muted-foreground hover:text-primary transition-colors">
                   Support
                 </a>
@@ -70,8 +70,8 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
                 </a>
               </div>
 
-              {/* Social Media Icons */}
-              <div className="flex gap-4">
+              {/* Social Media Icons - Centered */}
+              <div className="flex gap-4 justify-center">
                 <a 
                   href="https://facebook.com" 
                   target="_blank" 
@@ -102,7 +102,7 @@ export default function FooterSection({ onGetQuote }: FooterSectionProps) {
               </div>
 
               {/* Right Links */}
-              <div className="flex gap-6 text-sm">
+              <div className="flex gap-6 text-sm justify-center md:justify-end">
                 <a href="#return-policy" className="text-muted-foreground hover:text-primary transition-colors">
                   Return Policy
                 </a>
